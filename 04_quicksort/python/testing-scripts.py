@@ -44,6 +44,21 @@ def binary_search(A, item):
         binary_search(A[mid+1:], item)
 
 def quicksort(A):
-    Max = A[0]
     if len(A) < 2:
+        return A
+    else:
+        pivot = A[0]
+        less = [i for i in A[1:] if i <= pivot]
+        greater = [i for i in A[1:] if i > pivot]
+        return quicksort(less) + [pivot] + quicksort(greater)
         
+def multiply_array(A):
+    B = []
+    for i in A:
+        for j in A:
+            B.append(i*j)
+    return B, len(B)
+
+def multiply_array2(A):
+    B = [i*j for i in A for j in A]
+    return B, len(B)
